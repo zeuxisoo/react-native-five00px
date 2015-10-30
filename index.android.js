@@ -6,47 +6,56 @@
 
 var React = require('react-native');
 var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
+    AppRegistry,
+    StyleSheet,
+    BackAndroid,
+    Navigator,
+    View
 } = React;
 
+var HomeUI = require('./app/android/ui/home');
+
+var navigation;
+BackAndroid.addEventListener('hardwareBackPress', function() {
+    if (navigation && navigation.getCurrentRoutes().length > 1) {
+        navigation.pop();
+        return true;
+    }
+
+    return false;
+});
+
 var Five00px = React.createClass({
-  render: function() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
+    routeMapper: function(route, navigationOperations, onComponentRef) {
+        navigation = navigationOperations;
+
+        if (route.name === 'home') {
+            return (
+                <View style={styles.container}>
+                    <HomeUI></HomeUI>
+                </View>
+            );
+        }
+    },
+
+    render: function() {
+        var initialRoute = { name: 'home' };
+
+        return (
+            <Navigator
+                style={styles.container}
+                initialRoute={initialRoute}
+                configureScene={() => Navigator.SceneConfigs.FadeAndroid}
+                renderScene={this.routeMapper} />
+        );
+    }
 });
 
 var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    container: {
+        flex: 1,
+        flexDirection: 'column'
+    }
 });
 
 AppRegistry.registerComponent('Five00px', () => Five00px);
