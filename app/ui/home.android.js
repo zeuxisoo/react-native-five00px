@@ -12,7 +12,8 @@ var {
     Dimensions
 } = React;
 
-var DrawerMenuList = require('./drawer-menu-list');
+var DrawerMenuList = require('./shared/drawer-menu-list');
+var PhotoList = require('./home/photo-list.android');
 
 var DRAWER_REF = 'drawer';
 
@@ -48,13 +49,11 @@ var HomeUI = React.createClass({
                     <ToolbarAndroid
                         style={styles.toolbar}
                         navIcon={require('image!ic_menu_white')}
-                        title="首页"
+                        title="Home"
                         titleColor="white"
                         onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}>
                     </ToolbarAndroid>
-                    <View>
-                        <Text>This is a test</Text>
-                    </View>
+                    <PhotoList />
                 </View>
             </DrawerLayoutAndroid>
         )
@@ -68,7 +67,7 @@ var styles = StyleSheet.create({
         backgroundColor: '#FAFAFA',
     },
     toolbar: {
-        backgroundColor: '#00a2ed',
+        backgroundColor: '#886aea',
         height: 56,
     },
 });

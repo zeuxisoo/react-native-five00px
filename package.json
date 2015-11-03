@@ -6,6 +6,8 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "react-native": "^0.13.2"
+    "query-string": "^3.0.0",
+    "react-native": "^0.13.2",
+    "react-native-responsive-image": "^1.0.0"
   }
 }

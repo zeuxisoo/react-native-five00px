@@ -13,7 +13,7 @@ var {
     View
 } = React;
 
-var HomeUI = require('./app/android/ui/home');
+var HomeUI = require('./app/ui/home.android');
 
 var navigation;
 BackAndroid.addEventListener('hardwareBackPress', function() {

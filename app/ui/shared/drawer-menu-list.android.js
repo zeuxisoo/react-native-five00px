@@ -96,7 +96,7 @@ var styles = StyleSheet.create({
     header: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#00a2ed'
+        backgroundColor: '#886aea'
     },
 
     headerUserInfo: {
@@ -127,7 +127,7 @@ var styles = StyleSheet.create({
     rowItemName: {
         fontSize: 16,
         marginLeft: 16,
-        color: '#00a2ed'
+        color: '#886aea'
     },
 
     rowItemIcon: {
