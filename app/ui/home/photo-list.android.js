@@ -13,6 +13,7 @@ var {
 } = React;
 
 var DataService = require('../../service/data-service');
+var CardView = require('../../component/card-view');
 
 var PhotoList = React.createClass({
     getInitialState: function() {
@@ -44,26 +45,36 @@ var PhotoList = React.createClass({
     },
 
     renderRow: function(rowData, sectionID, rowID, highlightRow) {
-        console.log(rowData);
         return (
             <View>
                 <TouchableNativeFeedback
                     onShowUnderlay={highlightRow}
                     onHideUnderlay={highlightRow}>
-                    <View style={styles.rowItem}>
-                        <View style={styles.rowHeading}>
-                            <Text style={styles.rowItemName}>{rowData.name}</Text>
-                        </View>
-                        <View style={styles.rowBody}>
-                            <View style={styles.rowItemUser}>
-                                <Image source={{ uri: rowData.user.userpic_url }} style={styles.rowItemUserAvatar} />
-                                <View style={styles.rowItemUserInfo}>
-                                    <Text style={styles.rowItemuserFullname}>{rowData.user.fullname}</Text>
-                                    <Text style={styles.rowItemUserUsername}>@{rowData.user.username}</Text>
+                    <View style={styles.cardviewContainer}>
+                        <CardView
+                            backgroundColor="#a891f3"
+                            elevation={4}
+                            radius={4}
+                            contentPadding={2}
+                            useCompatPadding={true}
+                            preventCornerOverlap={true}
+                            style={styles.cardview}>
+                                <View style={styles.rowItem}>
+                                    <View style={styles.rowHeading}>
+                                        <Text style={styles.rowItemName}>{rowData.name}</Text>
+                                    </View>
+                                    <View style={styles.rowBody}>
+                                        <View style={styles.rowItemUser}>
+                                            <Image source={{ uri: rowData.user.userpic_url }} style={styles.rowItemUserAvatar} />
+                                            <View style={styles.rowItemUserInfo}>
+                                                <Text style={styles.rowItemuserFullname}>{rowData.user.fullname}</Text>
+                                                <Text style={styles.rowItemUserUsername}>@{rowData.user.username}</Text>
+                                            </View>
+                                        </View>
+                                        <ResponsiveImage source={{ uri: rowData.image_url }} initWidth="320" initHeight="220" style={styles.rowItemImage} />
+                                    </View>
                                 </View>
-                            </View>
-                            <ResponsiveImage source={{ uri: rowData.image_url }} initWidth="320" initHeight="220" style={styles.rowItemImage} />
-                        </View>
+                        </CardView>
                     </View>
                 </TouchableNativeFeedback>
             </View>
@@ -101,19 +112,19 @@ var styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    cardviewContainer: {
+        padding: 5
+    },
+    cardview: {
+        paddingBottom: 10
+    },
     rowItem: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: 'white',
-        marginLeft: 10,
-        marginRight: 10,
-        marginVertical: 5,
-        borderColor: '#a891f3',
-        borderStyle: null,
-        borderWidth: 1,
-        borderRadius: 2
+        backgroundColor: 'white'
     },
     rowHeading: {
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#a891f3',
