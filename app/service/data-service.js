@@ -11,11 +11,12 @@ DataService.prototype.query = function(url, parameter) {
     return fetch(apiUrl);
 };
 
-DataService.prototype.fetchPhotos = function() {
+DataService.prototype.fetchPhotos = function(page) {
     var endpoint = this.url + '/photos';
 
     return this.query(endpoint, {
         consumer_key: this.consumer_key,
+        page        : page,
         image_size  : 21
     }).then(function(response) {
         return response.json()

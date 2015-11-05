@@ -19,26 +19,46 @@ var PhotoList = React.createClass({
         });
 
         return {
-            isLoading : false,
-            dataSource: dataSource
+            isLoading    : false,
+            isLoadingTail: false,
+            currentPage  : 1,
+            dataSource   : dataSource
         };
     },
 
     componentDidMount: function() {
-        this.fetchPhotos();
+        this.photos = [];
+        this.fetchPhotos(this.state.currentPage);
     },
 
-    fetchPhotos: function() {
+    componentWillUnmount: function() {
+        this.photos = [];
+    },
+
+    fetchPhotos: function(page) {
         this.setState({
-            isLoading: true
+            isLoading: true,
+            isLoadingTail: true
         });
 
-        DataService.fetchPhotos().then(function(response) {
+        DataService.fetchPhotos(page).then(function(response) {
+            this.photos = this.photos.concat(response.photos);
+
             this.setState({
-                isLoading : false,
-                dataSource: this.state.dataSource.cloneWithRows(response.photos)
+                isLoading    : false,
+                isLoadingTail: false,
+                currentPage  : page,
+                dataSource   : this.state.dataSource.cloneWithRows(this.photos)
             });
         }.bind(this)).done();
+    },
+
+    onEndReached: function() {
+        if (this.state.isLoadingTail) {
+            return;
+        }
+
+        this.fetchPhotos(this.state.currentPage + 1);
     },
 
     renderRow: function(rowData, sectionID, rowID, highlightRow) {
@@ -62,6 +82,7 @@ var PhotoList = React.createClass({
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this.renderRow}
+                    onEndReached={this.onEndReached}
                     keyboardDismissMode="on-drag"
                     keyboardShouldPersistTaps={true}
                     showsVerticalScrollIndicator={false}

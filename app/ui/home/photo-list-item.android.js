@@ -44,7 +44,7 @@ var PhotoListItem = React.createClass({
                                                 <Text style={styles.rowItemUserUsername}>@{rowData.user.username}</Text>
                                             </View>
                                         </View>
-                                        <ResponsiveImage source={{ uri: rowData.image_url }} initWidth="320" initHeight="220" style={styles.rowItemImage} />
+                                        <ResponsiveImage source={{ uri: rowData.image_url }} initWidth="330" initHeight="220" style={styles.rowItemImage} />
                                     </View>
                                 </View>
                         </CardView>
@@ -75,6 +75,7 @@ var styles = StyleSheet.create({
         padding: 10
     },
     rowBody: {
+        flex: 1,
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 10
