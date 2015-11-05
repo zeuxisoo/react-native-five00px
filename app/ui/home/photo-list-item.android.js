@@ -39,7 +39,7 @@ var PhotoListItem = React.createClass({
                                     <View style={styles.rowBody}>
                                         <View style={styles.rowItemUser}>
                                             <Image source={{ uri: rowData.user.userpic_url }} style={styles.rowItemUserAvatar} />
-                                            <View style={styles.rowItemUserInfo}>
+                                            <View>
                                                 <Text style={styles.rowItemuserFullname}>{rowData.user.fullname}</Text>
                                                 <Text style={styles.rowItemUserUsername}>@{rowData.user.username}</Text>
                                             </View>
@@ -91,9 +91,6 @@ var styles = StyleSheet.create({
         width: 40,
         height: 40,
         marginRight: 8
-    },
-    rowItemUserInfo: {
-        fontSize: 14
     },
     rowItemuserFullname: {
         color: '#000000'
