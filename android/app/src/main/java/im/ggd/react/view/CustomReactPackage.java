@@ -1,4 +1,4 @@
-package com.react.view;
+package im.ggd.react.view;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -6,7 +6,7 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-import com.react.view.cardview.ReactCardViewManager;
+import im.ggd.react.view.cardview.ReactCardViewManager;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.react.view.cardview;
+package im.ggd.react.view.cardview;
 
 import android.support.annotation.Nullable;
 import android.util.Log;

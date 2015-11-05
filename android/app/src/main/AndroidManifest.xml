@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.five00px">
+    package="im.ggd.five00px">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

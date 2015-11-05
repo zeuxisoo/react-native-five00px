@@ -1,4 +1,4 @@
-package com.five00px;
+package im.ggd.five00px;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-import com.react.view.CustomReactPackage;
+import im.ggd.react.view.CustomReactPackage;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
