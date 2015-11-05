@@ -9,7 +9,7 @@ import com.facebook.react.uimanager.ViewGroupManager;
 
 public class ReactCardViewManager extends ViewGroupManager<ReactCardView> {
 
-    private static final String REACT_CLASS = "RCTCardView";
+    private static final String REACT_CLASS = "AndroidCardView";
     private static final String TAG = "ReactCardViewManager";
 
     @Override

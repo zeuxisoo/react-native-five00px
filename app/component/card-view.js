@@ -32,7 +32,7 @@ var NativeCardView = createReactNativeComponentClass({
     validAttributes: {
         ...ReactNativeViewAttributes.UIView
     },
-    uiViewClassName: 'RCTCardView',
+    uiViewClassName: 'AndroidCardView',
 });
 
 module.exports = CardView;
