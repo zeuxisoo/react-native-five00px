@@ -1,42 +1,38 @@
 'use strict';
 
 var React = require('react-native');
+var createReactNativeComponentClass = require('createReactNativeComponentClass');
+var ReactNativeViewAttributes = require('ReactNativeViewAttributes');
+var ReactPropTypes = require('ReactPropTypes');
 
-var {
-  requireNativeComponent,
-  PropTypes,
-  View
-} = React;
+var { View } = React;
 
 var CardView = React.createClass({
-    name: 'CardView',
-
     propTypes: {
-        scaleX: PropTypes.number,
-        scaleY: PropTypes.number,
-        translateX: PropTypes.number,
-        translateY: PropTypes.number,
-        rotation: React.PropTypes.number,
-
-        backgroundColor: PropTypes.string,
-        elevation: PropTypes.number,
-        radius: PropTypes.number,
-        contentPadding: PropTypes.number,
-        useCompatPadding: PropTypes.bool,
-        preventCornerOverlap: PropTypes.bool
+        backgroundColor: ReactPropTypes.string,
+        elevation: ReactPropTypes.number,
+        radius: ReactPropTypes.number,
+        contentPadding: ReactPropTypes.number,
+        useCompatPadding: ReactPropTypes.bool,
+        preventCornerOverlap: ReactPropTypes.bool
     },
 
     render: function() {
         return (
-            <RCTCardView {...this.props}>
+            <NativeCardView {...this.props}>
                 <View>
                     {this.props.children}
                 </View>
-            </RCTCardView>
+            </NativeCardView>
         )
     }
 });
 
-var RCTCardView = requireNativeComponent('RCTCardView', CardView);
+var NativeCardView = createReactNativeComponentClass({
+    validAttributes: {
+        ...ReactNativeViewAttributes.UIView
+    },
+    uiViewClassName: 'RCTCardView',
+});
 
-module.exports = RCTCardView;
+module.exports = CardView;
