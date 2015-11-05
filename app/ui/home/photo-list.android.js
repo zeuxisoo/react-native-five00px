@@ -4,6 +4,7 @@ var React = require('react-native');
 var ResponsiveImage = require('react-native-responsive-image');
 var DataService = require('../../service/data-service');
 var PhotoListItem = require('./photo-list-item.android');
+var SwipeRefreshLayout = require('../../component/swipe-refresh-layout.android');
 
 var {
     View,
@@ -11,6 +12,8 @@ var {
     ListView,
     StyleSheet
 } = React;
+
+var SWIPE_REFRESH_LAYOUT_REF = "swiperefreshlayout";
 
 var PhotoList = React.createClass({
     getInitialState: function() {
@@ -50,7 +53,17 @@ var PhotoList = React.createClass({
                 currentPage  : page,
                 dataSource   : this.state.dataSource.cloneWithRows(this.photos)
             });
+
+            this.stopRefresh();
         }.bind(this)).done();
+    },
+
+    stopRefresh: function() {
+        this.refs[SWIPE_REFRESH_LAYOUT_REF].stopRefresh();
+    },
+
+    onRefresh: function() {
+        this.fetchPhotos(1);
     },
 
     onEndReached: function() {
@@ -79,15 +92,17 @@ var PhotoList = React.createClass({
             );
         }else{
             return (
-                <ListView
-                    dataSource={this.state.dataSource}
-                    renderRow={this.renderRow}
-                    onEndReached={this.onEndReached}
-                    keyboardDismissMode="on-drag"
-                    keyboardShouldPersistTaps={true}
-                    showsVerticalScrollIndicator={false}
-                    automaticallyAdjustContentInsets={false}
-                    style={styles.listContainer} />
+                <SwipeRefreshLayout ref={SWIPE_REFRESH_LAYOUT_REF} onRefresh={this.onRefresh}>
+                    <ListView
+                        dataSource={this.state.dataSource}
+                        renderRow={this.renderRow}
+                        onEndReached={this.onEndReached}
+                        keyboardDismissMode="on-drag"
+                        keyboardShouldPersistTaps={true}
+                        showsVerticalScrollIndicator={false}
+                        automaticallyAdjustContentInsets={false}
+                        style={styles.listContainer} />
+                </SwipeRefreshLayout>
             );
         }
     }

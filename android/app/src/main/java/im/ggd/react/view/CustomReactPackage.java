@@ -7,6 +7,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
 import im.ggd.react.view.cardview.ReactCardViewManager;
+import im.ggd.react.view.swiperefresh.ReactSwipeRefreshLayoutManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,6 +30,7 @@ public class CustomReactPackage implements ReactPackage {
         List<ViewManager> result = new ArrayList<ViewManager>();
 
         result.add(new ReactCardViewManager());
+        result.add(new ReactSwipeRefreshLayoutManager());
 
         return result;
     }
