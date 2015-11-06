@@ -25,8 +25,8 @@ var DrawerMenuList = React.createClass({
     componentDidMount: function() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows([
-                { 'name': 'Home',  'icon': require('image!ic_menu_home') },
-                { 'name': 'Users', 'icon': require('image!ic_menu_users') }
+                { 'name': 'Home',  'icon': require('../../assets/img/menu-home.png') },
+                { 'name': 'Users', 'icon': require('../../assets/img/menu-users.png') }
             ])
         });
     },
@@ -36,7 +36,7 @@ var DrawerMenuList = React.createClass({
             <View style={styles.header}>
                 <TouchableNativeFeedback onPress={() => this.props.onSelectMenuItem(null)}>
                     <View style={styles.headerUserInfo}>
-                        <Image source={require('image!ic_menu_user_avatar')} style={styles.headerUserAvatar} />
+                        <Image source={require('../../assets/img/menu-user-avatar.png')} style={styles.headerUserAvatar} />
                         <Text style={styles.headerUserMessage}>
                             Hello, Master
                         </Text>

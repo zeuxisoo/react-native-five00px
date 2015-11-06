@@ -48,7 +48,7 @@ var HomeUI = React.createClass({
                 <View style={styles.container}>
                     <ToolbarAndroid
                         style={styles.toolbar}
-                        navIcon={require('image!ic_menu_white')}
+                        navIcon={require('../assets/img/menu-white.png')}
                         title="Home"
                         titleColor="white"
                         onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}>
