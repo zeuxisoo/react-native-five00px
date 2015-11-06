@@ -13,8 +13,20 @@ var {
 } = React;
 
 var PhotoListItem = React.createClass({
+    onPress: function() {
+        var navigation = this.props.navigation,
+            rowData = this.props.rowData;
+
+        navigation.push({
+            title  : rowData.name,
+            name   : 'photo',
+            rowData: rowData
+        });
+    },
+
     render: function() {
-        var highlightRow = this.props.onHighlight,
+        var navigation = this.props.navigation,
+            highlightRow = this.props.onHighlight,
             unHighlightRow = this.props.onUnhighlight,
             rowData = this.props.rowData;
 
@@ -22,7 +34,8 @@ var PhotoListItem = React.createClass({
             <View>
                 <TouchableNativeFeedback
                     onShowUnderlay={highlightRow}
-                    onHideUnderlay={unHighlightRow}>
+                    onHideUnderlay={unHighlightRow}
+                    onPress={() => this.onPress()}>
                     <View style={styles.cardviewContainer}>
                         <CardView
                             backgroundColor="#a891f3"

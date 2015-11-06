@@ -75,11 +75,14 @@ var PhotoList = React.createClass({
     },
 
     renderRow: function(rowData, sectionID, rowID, highlightRow) {
+        var navigation = this.props.navigation;
+
         return (
             <PhotoListItem
                 onHighlight={() => highlightRow(sectionID, rowID)}
                 onUnhighlight={() => highlightRow(null, null)}
-                rowData={rowData} />
+                rowData={rowData}
+                navigation={navigation} />
         );
     },
 
