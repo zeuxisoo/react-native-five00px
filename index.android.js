@@ -41,7 +41,7 @@ var Five00px = React.createClass({
         if (route.name === 'photo') {
             return (
                 <View style={styles.container}>
-                    <PhotoUI navigation={navigation}></PhotoUI>
+                    <PhotoUI navigation={navigation} photo={route.rowData}></PhotoUI>
                 </View>
             );
         }

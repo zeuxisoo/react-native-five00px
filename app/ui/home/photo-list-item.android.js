@@ -87,14 +87,14 @@ var styles = StyleSheet.create({
         backgroundColor: '#a891f3',
         padding: 10
     },
+    rowItemName: {
+        color: '#ffffff'
+    },
     rowBody: {
         flex: 1,
         paddingLeft: 10,
         paddingRight: 10,
         paddingBottom: 10
-    },
-    rowItemName: {
-        color: '#ffffff'
     },
     rowItemUser: {
         flexDirection: 'row',
