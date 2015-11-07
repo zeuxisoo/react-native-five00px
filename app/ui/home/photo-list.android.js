@@ -45,7 +45,11 @@ var PhotoList = React.createClass({
         });
 
         DataService.fetchPhotos(page).then(function(response) {
-            this.photos = this.photos.concat(response.photos);
+            if (page <= 1) {
+                this.photos = response.photos;
+            }else{
+                this.photos = this.photos.concat(response.photos);
+            }
 
             this.setState({
                 isLoading    : false,
