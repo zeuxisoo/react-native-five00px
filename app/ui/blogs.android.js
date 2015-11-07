@@ -8,18 +8,18 @@ var {
     Text
 } = React;
 
-var UsersUI = React.createClass({
+var BlogsUI = React.createClass({
     render: function() {
         var navigation = this.props.navigation;
 
         return (
-            <DrawerMenuUI toolbarTitle="Users" navigation={navigation}>
+            <DrawerMenuUI toolbarTitle="Blogs" navigation={navigation}>
                 <View>
-                    <Text>Users UI</Text>
+                    <Text>Blogs UI</Text>
                 </View>
             </DrawerMenuUI>
         )
     }
 });
 
-module.exports = UsersUI;
+module.exports = BlogsUI;
