@@ -15,10 +15,11 @@ var {
 
 var PhotoUI = React.createClass({
     render: function() {
-        var photo = this.props.photo;
+        var navigation = this.props.navigation,
+            photo = this.props.photo;
 
         return (
-            <DrawerMenuUI toolbarTitle="Photo">
+            <DrawerMenuUI toolbarTitle="Photo" navigation={navigation}>
                 <ScrollView>
                     <CardView>
                         <View style={styles.rowContainer}>

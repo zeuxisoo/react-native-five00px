@@ -9,7 +9,7 @@ var HomeUI = React.createClass({
         var navigation = this.props.navigation;
 
         return (
-            <DrawerMenuUI toolbarTitle="Home">
+            <DrawerMenuUI toolbarTitle="Home" navigation={navigation}>
                 <PhotoList navigation={navigation} />
             </DrawerMenuUI>
         )

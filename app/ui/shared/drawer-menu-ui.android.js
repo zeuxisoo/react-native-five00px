@@ -19,14 +19,15 @@ var DRAWER_REF = 'drawer';
 var DrawerMenuUI = React.createClass({
     getInitialState: function() {
         return {
-            rowData: null
         }
     },
 
     onSelectDrawerMenuRowItem: function(rowData) {
         this.refs[DRAWER_REF].closeDrawer();
-        this.setState({
-            rowData: rowData
+
+        this.props.navigation.popToTop();
+        this.props.navigation.replace({
+            name: rowData.route
         });
     },
 
