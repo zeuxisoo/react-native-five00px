@@ -23,4 +23,25 @@ DataService.prototype.fetchPhotos = function(page) {
     });
 };
 
+DataService.prototype.fetchBlogs = function(page) {
+    var endpoint = this.url + '/blogs';
+
+    return this.query(endpoint, {
+        consumer_key: this.consumer_key,
+        page        : page
+    }).then(function(response) {
+        return response.json()
+    });
+};
+
+DataService.prototype.fetchBlogPost = function(id) {
+    var endpoint = this.url + '/blogs/' + id;
+
+    return this.query(endpoint, {
+        consumer_key: this.consumer_key
+    }).then(function(response) {
+        return response.json()
+    });
+}
+
 module.exports = new DataService;

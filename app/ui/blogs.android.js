@@ -2,11 +2,7 @@
 
 var React = require('react-native');
 var DrawerMenuUI = require('./shared/drawer-menu-ui');
-
-var {
-    View,
-    Text
-} = React;
+var BlogList = require('./blogs/blog-list.android');
 
 var BlogsUI = React.createClass({
     render: function() {
@@ -14,9 +10,7 @@ var BlogsUI = React.createClass({
 
         return (
             <DrawerMenuUI toolbarTitle="Blogs" navigation={navigation}>
-                <View>
-                    <Text>Blogs UI</Text>
-                </View>
+                <BlogList navigation={navigation} />
             </DrawerMenuUI>
         )
     }

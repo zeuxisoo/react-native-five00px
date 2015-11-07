@@ -6,8 +6,11 @@
     "start": "react-native start"
   },
   "dependencies": {
+    "moment": "^2.10.6",
     "query-string": "^3.0.0",
     "react-native": "^0.14.0",
-    "react-native-responsive-image": "^1.0.0"
+    "react-native-responsive-image": "^1.0.0",
+    "react-native-timeago": "^0.1.0",
+    "react-timer-mixin": "^0.13.3"
   }
 }
