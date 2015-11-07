@@ -25,10 +25,15 @@ var DrawerMenuUI = React.createClass({
     onSelectDrawerMenuRowItem: function(rowData) {
         this.refs[DRAWER_REF].closeDrawer();
 
-        this.props.navigation.popToTop();
-        this.props.navigation.replace({
-            name: rowData.route
-        });
+        if (rowData.route === 'home') {
+            this.props.navigation.replace({
+                name: rowData.route
+            });
+        }else{
+            this.props.navigation.push({
+                name: rowData.route
+            });
+        }
     },
 
     renderNavigationView: function() {
