@@ -15,6 +15,7 @@ var {
 
 var HomeUI = require('./app/ui/home.android');
 var PhotoUI = require('./app/ui/photo.android');
+var UsersUI = require('./app/ui/users.android');
 
 var navigation;
 BackAndroid.addEventListener('hardwareBackPress', function() {
@@ -44,6 +45,14 @@ var Five00px = React.createClass({
                     <PhotoUI navigation={navigation} photo={route.rowData}></PhotoUI>
                 </View>
             );
+        }
+
+        if (route.name === 'users') {
+            return (
+                <View style={styles.container}>
+                    <UsersUI navigation={navigation}></UsersUI>
+                </View>
+            )
         }
     },
 
