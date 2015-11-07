@@ -2,7 +2,7 @@
 
 var React = require('react-native');
 var ResponsiveImage = require('react-native-responsive-image');
-var CardView = require('../../component/card-view.android');
+var CardView = require('../shared/card-view.android');
 
 var {
     View,
@@ -37,29 +37,22 @@ var PhotoListItem = React.createClass({
                     onHideUnderlay={unHighlightRow}
                     onPress={() => this.onPress()}>
                     <View style={styles.cardviewContainer}>
-                        <CardView
-                            backgroundColor="#a891f3"
-                            elevation={4}
-                            radius={4}
-                            contentPadding={2}
-                            useCompatPadding={true}
-                            preventCornerOverlap={true}
-                            style={styles.cardview}>
-                                <View style={styles.rowItem}>
-                                    <View style={styles.rowHeading}>
-                                        <Text style={styles.rowItemName}>{rowData.name}</Text>
-                                    </View>
-                                    <View style={styles.rowBody}>
-                                        <View style={styles.rowItemUser}>
-                                            <Image source={{ uri: rowData.user.userpic_url }} style={styles.rowItemUserAvatar} />
-                                            <View>
-                                                <Text style={styles.rowItemuserFullname}>{rowData.user.fullname}</Text>
-                                                <Text style={styles.rowItemUserUsername}>@{rowData.user.username}</Text>
-                                            </View>
-                                        </View>
-                                        <ResponsiveImage source={{ uri: rowData.image_url }} initWidth="330" initHeight="220" style={styles.rowItemImage} />
-                                    </View>
+                        <CardView>
+                            <View style={styles.rowItem}>
+                                <View style={styles.rowHeading}>
+                                    <Text style={styles.rowItemName}>{rowData.name}</Text>
                                 </View>
+                                <View style={styles.rowBody}>
+                                    <View style={styles.rowItemUser}>
+                                        <Image source={{ uri: rowData.user.userpic_url }} style={styles.rowItemUserAvatar} />
+                                        <View>
+                                            <Text style={styles.rowItemuserFullname}>{rowData.user.fullname}</Text>
+                                            <Text style={styles.rowItemUserUsername}>@{rowData.user.username}</Text>
+                                        </View>
+                                    </View>
+                                    <ResponsiveImage source={{ uri: rowData.image_url }} initWidth="330" initHeight="220" style={styles.rowItemImage} />
+                                </View>
+                            </View>
                         </CardView>
                     </View>
                 </TouchableNativeFeedback>
