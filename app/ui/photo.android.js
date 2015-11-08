@@ -7,6 +7,7 @@ var CardView = require('./shared/card-view.android');
 
 var {
     ScrollView,
+    TouchableNativeFeedback,
     View,
     Image,
     Text,
@@ -14,6 +15,16 @@ var {
 } = React;
 
 var PhotoUI = React.createClass({
+    onPressUser: function() {
+        var navigation = this.props.navigation,
+            photo = this.props.photo;
+
+        navigation.push({
+            name   : 'user-profile',
+            rowData: photo.user
+        });
+    },
+
     render: function() {
         var navigation = this.props.navigation,
             photo = this.props.photo;
@@ -22,13 +33,15 @@ var PhotoUI = React.createClass({
             <DrawerMenuUI toolbarTitle="Photo" navigation={navigation}>
                 <ScrollView>
                     <CardView>
-                        <View style={styles.rowContainer}>
-                            <Image source={{ uri: photo.user.userpic_url }} style={styles.userAvatar} />
-                            <View>
-                                <Text style={styles.userFullname}>{photo.user.fullname}</Text>
-                                <Text style={styles.userUsername}>@{photo.user.username}</Text>
+                        <TouchableNativeFeedback onPress={rowData => this.onPressUser()}>
+                            <View style={styles.rowContainer}>
+                                <Image source={{ uri: photo.user.userpic_url }} style={styles.userAvatar} />
+                                <View>
+                                    <Text style={styles.userFullname}>{photo.user.fullname}</Text>
+                                    <Text style={styles.userUsername}>@{photo.user.username}</Text>
+                                </View>
                             </View>
-                        </View>
+                        </TouchableNativeFeedback>
                     </CardView>
 
                     <CardView>
