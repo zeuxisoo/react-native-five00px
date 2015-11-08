@@ -20,7 +20,7 @@ var SearchListItem = React.createClass({
 
         navigation.push({
             title  : rowData.title,
-            name   : 'user',
+            name   : 'user-profile',
             rowData: rowData
         });
     },

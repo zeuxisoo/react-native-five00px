@@ -56,4 +56,15 @@ DataService.prototype.fetchUsers = function(page, term) {
     });
 };
 
+DataService.prototype.fetchUserProfile = function(id) {
+    var endpoint = this.url + '/users/show';
+
+    return this.query(endpoint, {
+        consumer_key: this.consumer_key,
+        id          : id
+    }).then(function(response) {
+        return response.json()
+    });
+};
+
 module.exports = new DataService;
