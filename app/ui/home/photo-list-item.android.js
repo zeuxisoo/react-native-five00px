@@ -13,7 +13,17 @@ var {
 } = React;
 
 var PhotoListItem = React.createClass({
-    onPress: function() {
+    onPressUser: function() {
+        var navigation = this.props.navigation,
+            rowData = this.props.rowData;
+
+        navigation.push({
+            name   : 'user-profile',
+            rowData: rowData.user
+        });
+    },
+
+    onPressPhoto: function() {
         var navigation = this.props.navigation,
             rowData = this.props.rowData;
 
@@ -31,31 +41,30 @@ var PhotoListItem = React.createClass({
             rowData = this.props.rowData;
 
         return (
-            <View>
-                <TouchableNativeFeedback
-                    onShowUnderlay={highlightRow}
-                    onHideUnderlay={unHighlightRow}
-                    onPress={() => this.onPress()}>
-                    <View style={styles.cardviewContainer}>
-                        <CardView>
-                            <View style={styles.rowItem}>
-                                <View style={styles.rowHeading}>
-                                    <Text style={styles.rowItemName}>{rowData.name}</Text>
-                                </View>
-                                <View style={styles.rowBody}>
-                                    <View style={styles.rowItemUser}>
-                                        <Image source={{ uri: rowData.user.userpic_url }} style={styles.rowItemUserAvatar} />
-                                        <View>
-                                            <Text style={styles.rowItemuserFullname}>{rowData.user.fullname}</Text>
-                                            <Text style={styles.rowItemUserUsername}>@{rowData.user.username}</Text>
-                                        </View>
+            <View style={styles.cardviewContainer}>
+                <CardView>
+                    <View style={styles.rowItem}>
+                        <View style={styles.rowHeading}>
+                            <Text style={styles.rowItemName}>{rowData.name}</Text>
+                        </View>
+                        <View style={styles.rowBody}>
+                            <TouchableNativeFeedback onShowUnderlay={highlightRow} onHideUnderlay={unHighlightRow} onPress={rowData => this.onPressUser()}>
+                                <View style={styles.rowItemUser}>
+                                    <Image source={{ uri: rowData.user.userpic_url }} style={styles.rowItemUserAvatar} />
+                                    <View>
+                                        <Text style={styles.rowItemuserFullname}>{rowData.user.fullname}</Text>
+                                        <Text style={styles.rowItemUserUsername}>@{rowData.user.username}</Text>
                                     </View>
-                                    <ResponsiveImage source={{ uri: rowData.image_url }} initWidth="330" initHeight="220" style={styles.rowItemImage} />
                                 </View>
-                            </View>
-                        </CardView>
+                            </TouchableNativeFeedback>
+                            <TouchableNativeFeedback onShowUnderlay={highlightRow} onHideUnderlay={unHighlightRow} onPress={() => this.onPressPhoto()}>
+                                <View style={styles.rowItemImage}>
+                                    <ResponsiveImage source={{ uri: rowData.image_url }} initWidth="330" initHeight="220" />
+                                </View>
+                            </TouchableNativeFeedback>
+                        </View>
                     </View>
-                </TouchableNativeFeedback>
+                </CardView>
             </View>
         )
     }
