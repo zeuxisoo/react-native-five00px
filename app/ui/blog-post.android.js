@@ -9,6 +9,7 @@ var DataService = require('../service/data-service');
 
 var {
     ScrollView,
+    TouchableNativeFeedback,
     View,
     Image,
     Text,
@@ -41,6 +42,16 @@ var BlogPostUI = React.createClass({
         }).done();
     },
 
+    onPressUser: function() {
+        var navigation = this.props.navigation,
+            blogPost = this.props.blogPost;
+
+        navigation.push({
+            name   : 'user-profile',
+            rowData: blogPost.user
+        });
+    },
+
     render: function() {
         var navigation = this.props.navigation,
             blogPost = this.props.blogPost;
@@ -67,13 +78,15 @@ var BlogPostUI = React.createClass({
                     <DrawerMenuUI toolbarTitle="Blog Post" navigation={navigation}>
                         <ScrollView>
                             <CardView>
-                                <View style={styles.rowContainer}>
-                                    <Image source={{ uri: blogPost.user.userpic_url }} style={styles.userAvatar} />
-                                    <View style={styles.baseInfo}>
-                                        <Text style={styles.userFullname}>{blogPost.user.fullname}</Text>
-                                        <Text style={styles.userUsername}>@{blogPost.user.username}</Text>
+                                <TouchableNativeFeedback onPress={rowData => this.onPressUser()}>
+                                    <View style={styles.rowContainer}>
+                                        <Image source={{ uri: blogPost.user.userpic_url }} style={styles.userAvatar} />
+                                        <View style={styles.baseInfo}>
+                                            <Text style={styles.userFullname}>{blogPost.user.fullname}</Text>
+                                            <Text style={styles.userUsername}>@{blogPost.user.username}</Text>
+                                        </View>
                                     </View>
-                                </View>
+                                </TouchableNativeFeedback>
                             </CardView>
 
                             <CardView>
