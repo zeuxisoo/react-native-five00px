@@ -42,6 +42,18 @@ DataService.prototype.fetchBlogPost = function(id) {
     }).then(function(response) {
         return response.json()
     });
-}
+};
+
+DataService.prototype.fetchUsers = function(page, term) {
+    var endpoint = this.url + '/users/search';
+
+    return this.query(endpoint, {
+        consumer_key: this.consumer_key,
+        term        : term,
+        page        : page
+    }).then(function(response) {
+        return response.json()
+    });
+};
 
 module.exports = new DataService;

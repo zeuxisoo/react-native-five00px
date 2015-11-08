@@ -25,8 +25,9 @@ var DrawerMenuList = React.createClass({
     componentDidMount: function() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows([
-                { 'name': 'Home',  'icon': require('../../assets/img/menu-home.png'),  'route': 'home'  },
-                { 'name': 'Blogs', 'icon': require('../../assets/img/menu-blogs.png'), 'route': 'blogs' }
+                { 'name': 'Home',   'icon': require('../../assets/img/menu-home.png'),   'route': 'home'   },
+                { 'name': 'Blogs',  'icon': require('../../assets/img/menu-blogs.png'),  'route': 'blogs'  },
+                { 'name': 'Search', 'icon': require('../../assets/img/menu-search.png'), 'route': 'search' }
             ])
         });
     },
