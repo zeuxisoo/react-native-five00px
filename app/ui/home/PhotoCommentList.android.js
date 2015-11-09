@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react-native');
-var ResponsiveImage = require('react-native-responsive-image');
 var DataService = require('../../service/DataService');
 var PhotoCommentListItem = require('./PhotoCommentListItem.android');
 var SwipeRefreshLayout = require('../../component/SwipeRefreshLayout.android');

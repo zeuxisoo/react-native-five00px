@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react-native');
-var ResponsiveImage = require('react-native-responsive-image');
 var TimeAgo = require('react-native-timeago');
 var DrawerMenuUI = require('./shared/DrawerMenu');
 var CardView = require('./shared/CardView.android');
