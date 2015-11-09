@@ -157,6 +157,7 @@ var styles = StyleSheet.create({
         color: '#777777'
     },
     title: {
+        flex: 1,
         color: '#a891f3',
         fontWeight: 'bold'
     },
