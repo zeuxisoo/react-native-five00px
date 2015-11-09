@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var DrawerMenuList = require('./DrawerMenuList');
 
 var {
     StyleSheet,
@@ -8,17 +9,28 @@ var {
     View,
     ToolbarAndroid,
     Text,
-
     Dimensions
 } = React;
 
-var DrawerMenuList = require('./DrawerMenuList');
-
 var DRAWER_REF = 'drawer';
+
+var toolbarActions = [
+    { title: 'About', icon: require('../../assets/img/menu-info.png'), show: 'never' },
+];
 
 var DrawerMenuUI = React.createClass({
     getInitialState: function() {
         return {
+        }
+    },
+
+    onToolbarActionSelected: function(position) {
+        var navigation = this.props.navigation;
+
+        if (position === 0) {
+            navigation.push({
+                name: 'about'
+            });
         }
     },
 
@@ -58,7 +70,11 @@ var DrawerMenuUI = React.createClass({
                         navIcon={require('../../assets/img/menu-white.png')}
                         title={this.props.toolbarTitle}
                         titleColor="white"
-                        onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}>
+                        subtitleColor="white"
+                        actions={toolbarActions}
+                        onActionSelected={this.onToolbarActionSelected}
+                        onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}
+                        overflowIcon={require('../../assets/img/menu-overflow-icon.png')}>
                     </ToolbarAndroid>
                     {this.props.children}
                 </View>

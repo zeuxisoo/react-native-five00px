@@ -13,6 +13,8 @@ import com.facebook.soloader.SoLoader;
 
 import im.ggd.react.view.CustomReactPackage;
 
+import com.ivanph.webintent.RNWebIntentPackage;
+
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
     private ReactInstanceManager mReactInstanceManager;
@@ -29,6 +31,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
                 .addPackage(new CustomReactPackage())
+                .addPackage(new RNWebIntentPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();

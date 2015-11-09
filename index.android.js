@@ -20,6 +20,7 @@ var BlogsUI = require('./app/ui/Blogs.android');
 var BlogPostUI = require('./app/ui/BlogPost.android');
 var SearchUI = require('./app/ui/Search.android');
 var UserProfileUI = require('./app/ui/UserProfile.android');
+var AboutUI = require('./app/ui/About.android');
 
 var navigation;
 BackAndroid.addEventListener('hardwareBackPress', function() {
@@ -87,6 +88,14 @@ var Five00px = React.createClass({
             return (
                 <View style={styles.container}>
                     <UserProfileUI navigation={navigation} userProfile={route.rowData}></UserProfileUI>
+                </View>
+            )
+        }
+
+        if (route.name === 'about') {
+            return (
+                <View style={styles.container}>
+                    <AboutUI navigation={navigation}></AboutUI>
                 </View>
             )
         }
