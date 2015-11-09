@@ -15,6 +15,7 @@ var {
 
 var HomeUI = require('./app/ui/home.android');
 var PhotoUI = require('./app/ui/photo.android');
+var PhotoCommentsUI = require('./app/ui/photo-comments.android');
 var BlogsUI = require('./app/ui/blogs.android');
 var BlogPostUI = require('./app/ui/blog-post.android');
 var SearchUI = require('./app/ui/search.android');
@@ -48,6 +49,14 @@ var Five00px = React.createClass({
                     <PhotoUI navigation={navigation} photo={route.rowData}></PhotoUI>
                 </View>
             );
+        }
+
+        if (route.name === 'photo-comments') {
+            return (
+                <View style={styles.container}>
+                    <PhotoCommentsUI navigation={navigation} photo={route.rowData}></PhotoCommentsUI>
+                </View>
+            )
         }
 
         if (route.name === 'blogs') {

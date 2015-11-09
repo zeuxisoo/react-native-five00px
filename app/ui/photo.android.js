@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var ResponsiveImage = require('react-native-responsive-image');
+var Button = require('react-native-button');
 var DrawerMenuUI = require('./shared/drawer-menu-ui');
 var CardView = require('./shared/card-view.android');
 
@@ -22,6 +23,16 @@ var PhotoUI = React.createClass({
         navigation.push({
             name   : 'user-profile',
             rowData: photo.user
+        });
+    },
+
+    onPressViewComments: function() {
+        var navigation = this.props.navigation,
+            photo = this.props.photo;
+
+        navigation.push({
+            name   : 'photo-comments',
+            rowData: photo
         });
     },
 
@@ -98,6 +109,12 @@ var PhotoUI = React.createClass({
                                 <Text style={styles.photoInfoSubject}>Rating</Text>
                                 <Text style={styles.photoInfoContent}>{photo.rating}</Text>
                             </View>
+                        </View>
+                    </CardView>
+
+                    <CardView>
+                        <View style={styles.columnContainer}>
+                            <Button onPress={this.onPressViewComments}>View Comments</Button>
                         </View>
                     </CardView>
                 </ScrollView>

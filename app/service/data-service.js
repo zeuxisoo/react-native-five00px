@@ -23,6 +23,17 @@ DataService.prototype.fetchPhotos = function(page) {
     });
 };
 
+DataService.prototype.fetchPhotoComments = function(page, id) {
+    var endpoint = this.url + '/photos/' + id + '/comments';
+
+    return this.query(endpoint, {
+        consumer_key: this.consumer_key,
+        page        : page
+    }).then(function(response) {
+        return response.json()
+    });
+};
+
 DataService.prototype.fetchBlogs = function(page) {
     var endpoint = this.url + '/blogs';
 
