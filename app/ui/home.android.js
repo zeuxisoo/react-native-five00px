@@ -1,8 +1,8 @@
 'use strict';
 
 var React = require('react-native');
-var DrawerMenuUI = require('./shared/drawer-menu-ui');
-var PhotoList = require('./home/photo-list.android');
+var DrawerMenuUI = require('./shared/DrawerMenu');
+var PhotoList = require('./home/PhotoList.android');
 
 var HomeUI = React.createClass({
     render: function() {

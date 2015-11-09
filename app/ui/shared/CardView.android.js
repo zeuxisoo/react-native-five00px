@@ -7,7 +7,7 @@ var {
     StyleSheet
 } = React;
 
-var CardView = require('../../component/card-view.android');
+var CardView = require('../../component/CardView.android');
 
 var CustomCardView = React.createClass({
     render: function() {

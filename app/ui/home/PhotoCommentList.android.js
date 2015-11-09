@@ -2,9 +2,9 @@
 
 var React = require('react-native');
 var ResponsiveImage = require('react-native-responsive-image');
-var DataService = require('../../service/data-service');
-var PhotoCommentListItem = require('./photo-comment-list-item.android');
-var SwipeRefreshLayout = require('../../component/swipe-refresh-layout.android');
+var DataService = require('../../service/DataService');
+var PhotoCommentListItem = require('./PhotoCommentListItem.android');
+var SwipeRefreshLayout = require('../../component/SwipeRefreshLayout.android');
 
 var {
     View,

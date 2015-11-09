@@ -12,7 +12,7 @@ var {
     Dimensions
 } = React;
 
-var DrawerMenuList = require('./drawer-menu-list');
+var DrawerMenuList = require('./DrawerMenuList');
 
 var DRAWER_REF = 'drawer';
 

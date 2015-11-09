@@ -13,13 +13,13 @@ var {
     View
 } = React;
 
-var HomeUI = require('./app/ui/home.android');
-var PhotoUI = require('./app/ui/photo.android');
-var PhotoCommentsUI = require('./app/ui/photo-comments.android');
-var BlogsUI = require('./app/ui/blogs.android');
-var BlogPostUI = require('./app/ui/blog-post.android');
-var SearchUI = require('./app/ui/search.android');
-var UserProfileUI = require('./app/ui/user-profile.android');
+var HomeUI = require('./app/ui/Home.android');
+var PhotoUI = require('./app/ui/Photo.android');
+var PhotoCommentsUI = require('./app/ui/PhotoComments.android');
+var BlogsUI = require('./app/ui/Blogs.android');
+var BlogPostUI = require('./app/ui/BlogPost.android');
+var SearchUI = require('./app/ui/Search.android');
+var UserProfileUI = require('./app/ui/UserProfile.android');
 
 var navigation;
 BackAndroid.addEventListener('hardwareBackPress', function() {

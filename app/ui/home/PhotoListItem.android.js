@@ -2,7 +2,7 @@
 
 var React = require('react-native');
 var ResponsiveImage = require('react-native-responsive-image');
-var CardView = require('../shared/card-view.android');
+var CardView = require('../shared/CardView.android');
 
 var {
     View,

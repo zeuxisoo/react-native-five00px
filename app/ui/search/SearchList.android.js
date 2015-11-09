@@ -2,8 +2,8 @@
 
 var React = require('react-native');
 var Button = require('react-native-button');
-var DataService = require('../../service/data-service');
-var SearchListItem = require('./search-list-item.android');
+var DataService = require('../../service/DataService');
+var SearchListItem = require('./SearchListItem.android');
 
 var {
     TouchableWithoutFeedback,

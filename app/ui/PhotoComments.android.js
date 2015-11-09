@@ -1,8 +1,8 @@
 'use strict';
 
 var React = require('react-native');
-var DrawerMenuUI = require('./shared/drawer-menu-ui');
-var PhotoCommentList = require('./home/photo-comment-list.android');
+var DrawerMenuUI = require('./shared/DrawerMenu');
+var PhotoCommentList = require('./home/PhotoCommentList.android');
 
 var PhotoCommentsUI = React.createClass({
     render: function() {

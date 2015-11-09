@@ -3,8 +3,8 @@
 var React = require('react-native');
 var ResponsiveImage = require('react-native-responsive-image');
 var Button = require('react-native-button');
-var DrawerMenuUI = require('./shared/drawer-menu-ui');
-var CardView = require('./shared/card-view.android');
+var DrawerMenuUI = require('./shared/DrawerMenu');
+var CardView = require('./shared/CardView.android');
 
 var {
     ScrollView,

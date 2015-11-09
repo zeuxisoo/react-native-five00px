@@ -3,7 +3,7 @@
 var React = require('react-native');
 var ResponsiveImage = require('react-native-responsive-image');
 var TimeAgo = require('react-native-timeago');
-var CardView = require('../shared/card-view.android');
+var CardView = require('../shared/CardView.android');
 
 var {
     View,
@@ -13,14 +13,14 @@ var {
     StyleSheet
 } = React;
 
-var SearchListItem = React.createClass({
+var BlogListItem = React.createClass({
     onPress: function() {
         var navigation = this.props.navigation,
             rowData = this.props.rowData;
 
         navigation.push({
             title  : rowData.title,
-            name   : 'user-profile',
+            name   : 'blog-post',
             rowData: rowData
         });
     },
@@ -40,10 +40,10 @@ var SearchListItem = React.createClass({
                     <View style={styles.cardviewContainer}>
                         <CardView>
                             <View style={styles.rowContainer}>
-                                <Image source={{ uri: rowData.userpic_url }} style={styles.userAvatar} />
+                                <Image source={{ uri: rowData.user.userpic_url }} style={styles.userAvatar} />
                                 <View style={styles.baseInfo}>
-                                    <Text style={styles.userFullname}>{rowData.fullname}</Text>
-                                    <Text style={styles.userUsername}>@{rowData.username}</Text>
+                                    <Text style={styles.userFullname}>{rowData.user.fullname}</Text>
+                                    <Text style={styles.blogTitle} numberOfLines={1}>{rowData.title}</Text>
                                 </View>
                             </View>
                         </CardView>
@@ -56,7 +56,7 @@ var SearchListItem = React.createClass({
 
 var styles = StyleSheet.create({
     cardviewContainer: {
-        padding: 0
+        padding: 5
     },
     rowContainer: {
         flex: 1,
@@ -75,11 +75,10 @@ var styles = StyleSheet.create({
     userFullname: {
         color: '#000000'
     },
-    userUsername: {
+    blogTitle: {
         flex: 1,
-        color: '#777777',
-        fontSize: 12
+        color: '#777777'
     }
 });
 
-module.exports = SearchListItem;
+module.exports = BlogListItem;
