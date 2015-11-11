@@ -57,8 +57,8 @@ android {
         applicationId "im.ggd.five00px"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 20
+        versionName "0.1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
