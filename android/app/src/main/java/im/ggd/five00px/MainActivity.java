@@ -11,7 +11,7 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-import im.ggd.react.view.CustomReactPackage;
+import im.ggd.react.CustomReactPackage;
 
 import com.ivanph.webintent.RNWebIntentPackage;
 
