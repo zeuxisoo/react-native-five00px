@@ -10,7 +10,8 @@ var {
     StyleSheet,
     BackAndroid,
     Navigator,
-    View
+    View,
+    Text
 } = React;
 
 var HomeUI = require('./app/ui/Home.android');
@@ -21,6 +22,8 @@ var BlogPostUI = require('./app/ui/BlogPost.android');
 var SearchUI = require('./app/ui/Search.android');
 var UserProfileUI = require('./app/ui/UserProfile.android');
 var AboutUI = require('./app/ui/About.android');
+
+var Network = require('./app/helper/Network.android');
 
 var navigation;
 BackAndroid.addEventListener('hardwareBackPress', function() {
@@ -33,6 +36,20 @@ BackAndroid.addEventListener('hardwareBackPress', function() {
 });
 
 var Five00px = React.createClass({
+    getInitialState() {
+        return {
+            hasNetwork: false,
+        };
+    },
+
+    componentDidMount: function() {
+        Network.isConnected((state) => {
+            this.setState({
+                hasNetwork: state
+            });
+        });
+    },
+
     routeMapper: function(route, navigationOperations, onComponentRef) {
         navigation = navigationOperations;
 
@@ -104,17 +121,32 @@ var Five00px = React.createClass({
     render: function() {
         var initialRoute = { name: 'home' };
 
-        return (
-            <Navigator
-                style={styles.container}
-                initialRoute={initialRoute}
-                configureScene={() => Navigator.SceneConfigs.FadeAndroid}
-                renderScene={this.routeMapper} />
-        );
+        if (this.state.hasNetwork === false) {
+            return (
+                <View style={styles.centerBlock}>
+                    <Text>- Five00px -</Text>
+                    <Text>........................</Text>
+                    <Text>No network connection :(</Text>
+                </View>
+            );
+        }else{
+            return (
+                <Navigator
+                    style={styles.container}
+                    initialRoute={initialRoute}
+                    configureScene={() => Navigator.SceneConfigs.FadeAndroid}
+                    renderScene={this.routeMapper} />
+            );
+        }
     }
 });
 
 var styles = StyleSheet.create({
+    centerBlock: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     container: {
         flex: 1,
         flexDirection: 'column'
