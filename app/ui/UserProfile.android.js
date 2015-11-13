@@ -4,6 +4,7 @@ var React = require('react-native');
 var DrawerMenuUI = require('./shared/DrawerMenu');
 var CardView = require('./shared/CardView.android');
 var DataService = require('../service/DataService');
+var CenterBlockView = require('../component/CenterBlockView');
 
 var {
     ScrollView,
@@ -100,18 +101,14 @@ var UserProfileUI = React.createClass({
         if (this.state.isLoading) {
             return (
                 <DrawerMenuUI toolbarTitle="User Profile" navigation={navigation}>
-                    <View style={styles.centerBlock}>
-                        <Text>Loading...</Text>
-                    </View>
+                    <CenterBlockView message="Loading..." />
                 </DrawerMenuUI>
             );
         }else{
             if (this.state.userProfile === null) {
                 return (
                     <DrawerMenuUI toolbarTitle="User Profile" navigation={navigation}>
-                        <View style={styles.centerBlock}>
-                            <Text>Load failed</Text>
-                        </View>
+                        <CenterBlockView message="Load failed" />
                     </DrawerMenuUI>
                 );
             }else{
@@ -205,11 +202,6 @@ var UserProfileUI = React.createClass({
 });
 
 var styles = StyleSheet.create({
-    centerBlock: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
     columnContainer: {
         flex: 1,
         flexDirection: 'column',

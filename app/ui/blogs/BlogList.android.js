@@ -4,6 +4,7 @@ var React = require('react-native');
 var DataService = require('../../service/DataService');
 var BlogListItem = require('./BlogListItem.android');
 var SwipeRefreshLayout = require('../../component/SwipeRefreshLayout.android');
+var CenterBlockView = require('../../component/CenterBlockView');
 
 var {
     View,
@@ -92,9 +93,7 @@ var BlogList = React.createClass({
     render: function() {
         if (this.state.dataSource.getRowCount() === 0) {
             return (
-                <View style={styles.centerBlock}>
-                    <Text>{this.state.isLoading ? 'Loading...' : 'Load failed'}</Text>
-                </View>
+                <CenterBlockView text={this.state.isLoading ? 'Loading...' : 'Load failed'} />
             );
         }else{
             return (
@@ -118,11 +117,6 @@ var BlogList = React.createClass({
 var styles = StyleSheet.create({
     listContainer: {
         backgroundColor: '#FFF',
-    },
-    centerBlock: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
     }
 });
 

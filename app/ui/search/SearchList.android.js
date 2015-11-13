@@ -4,6 +4,7 @@ var React = require('react-native');
 var Button = require('react-native-button');
 var DataService = require('../../service/DataService');
 var SearchListItem = require('./SearchListItem.android');
+var CenterBlockView = require('../../component/CenterBlockView');
 
 var {
     TouchableWithoutFeedback,
@@ -106,9 +107,7 @@ var SearchUI = React.createClass({
 
         if (this.state.isFirstLoad) {
             resultContent = (
-                <View style={styles.centerBlock}>
-                    <Text>Searching...</Text>
-                </View>
+                <CenterBlockView text="Searching..." />
             );
         }else{
             resultContent = (
@@ -150,11 +149,6 @@ var SearchUI = React.createClass({
 });
 
 var styles = StyleSheet.create({
-    centerBlock: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
     columnContainer: {
         flex: 1,
         flexDirection: 'column',
