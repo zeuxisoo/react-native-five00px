@@ -1,12 +1,11 @@
 'use strict';
 
-var React = require('react-native');
-
-var {
+import React, { Component } from 'react';
+import {
     View,
     Text,
     StyleSheet
-} = React;
+} from 'react-native';
 
 var CenterBlockView = React.createClass({
     render: function() {

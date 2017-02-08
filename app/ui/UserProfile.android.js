@@ -1,19 +1,19 @@
 'use strict';
 
-var React = require('react-native');
-var DrawerMenuUI = require('./shared/DrawerMenu');
-var CardView = require('./shared/CardView.android');
-var DataService = require('../service/DataService');
-var CenterBlockView = require('../component/CenterBlockView');
-
-var {
+import React, { Component } from 'react';
+import {
     ScrollView,
     View,
     Image,
     Text,
     ListView,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import DrawerMenuUI from './shared/DrawerMenu';
+import CardView from './shared/CardView.android';
+import DataService from '../service/DataService';
+import CenterBlockView from '../component/CenterBlockView';
 
 var UserProfileUI = React.createClass({
     getInitialState: function() {
@@ -188,7 +188,7 @@ var UserProfileUI = React.createClass({
                                     renderSectionHeader={this.renderUserEquipmentSectionHeader}
                                     renderRow={this.renderUserEquipmentRow}
                                     keyboardDismissMode="on-drag"
-                                    keyboardShouldPersistTaps={true}
+                                    keyboardShouldPersistTaps="always"
                                     showsVerticalScrollIndicator={false}
                                     automaticallyAdjustContentInsets={false} />
                             </CardView>

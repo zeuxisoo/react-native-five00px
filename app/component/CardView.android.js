@@ -1,20 +1,21 @@
 'use strict';
 
-var React = require('react-native');
-var createReactNativeComponentClass = require('createReactNativeComponentClass');
-var ReactNativeViewAttributes = require('ReactNativeViewAttributes');
-var ReactPropTypes = require('ReactPropTypes');
+import React, { Component } from 'react';
+import {
+    View
+} from 'react-native';
 
-var { View } = React;
+import createReactNativeComponentClass from 'createReactNativeComponentClass';
+import ReactNativeViewAttributes from 'ReactNativeViewAttributes';
 
 var CardView = React.createClass({
     propTypes: {
-        backgroundColor: ReactPropTypes.string,
-        elevation: ReactPropTypes.number,
-        radius: ReactPropTypes.number,
-        contentPadding: ReactPropTypes.number,
-        useCompatPadding: ReactPropTypes.bool,
-        preventCornerOverlap: ReactPropTypes.bool
+        backgroundColor: React.PropTypes.string,
+        elevation: React.PropTypes.number,
+        radius: React.PropTypes.number,
+        contentPadding: React.PropTypes.number,
+        useCompatPadding: React.PropTypes.bool,
+        preventCornerOverlap: React.PropTypes.bool
     },
 
     render: function() {

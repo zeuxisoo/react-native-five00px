@@ -1,29 +1,29 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
+ * @flow
  */
-'use strict';
 
-var React = require('react-native');
-var {
-    AppRegistry,
-    StyleSheet,
-    BackAndroid,
-    Navigator,
-    View,
-    Text
-} = React;
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  BackAndroid,
+  Navigator,
+  View,
+  Text
+} from 'react-native';
 
-var HomeUI = require('./app/ui/Home.android');
-var PhotoUI = require('./app/ui/Photo.android');
-var PhotoCommentsUI = require('./app/ui/PhotoComments.android');
-var BlogsUI = require('./app/ui/Blogs.android');
-var BlogPostUI = require('./app/ui/BlogPost.android');
-var SearchUI = require('./app/ui/Search.android');
-var UserProfileUI = require('./app/ui/UserProfile.android');
-var AboutUI = require('./app/ui/About.android');
+import HomeUI from './app/ui/Home.android';
+import PhotoUI from './app/ui/Photo.android';
+import PhotoCommentsUI from './app/ui/PhotoComments.android';
+import BlogsUI from './app/ui/Blogs.android';
+import BlogPostUI from './app/ui/BlogPost.android';
+import SearchUI from './app/ui/Search.android';
+import UserProfileUI from './app/ui/UserProfile.android';
+import AboutUI from './app/ui/About.android';
 
-var Network = require('./app/helper/Network.android');
+import Network from './app/helper/Network.android';
 
 var navigation;
 BackAndroid.addEventListener('hardwareBackPress', function() {

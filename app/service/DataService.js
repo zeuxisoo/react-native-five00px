@@ -1,4 +1,4 @@
-var queryString = require('query-string');
+import queryString from 'query-string';
 
 var DataService = function() {
     this.url          = 'https://api.500px.com/v1/';

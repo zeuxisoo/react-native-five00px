@@ -1,17 +1,17 @@
 'use strict';
 
-var React = require('react-native');
-var DataService = require('../../service/DataService');
-var BlogListItem = require('./BlogListItem.android');
-var SwipeRefreshLayout = require('../../component/SwipeRefreshLayout.android');
-var CenterBlockView = require('../../component/CenterBlockView');
-
-var {
+import React, { Component } from 'react';
+import {
     View,
     Text,
     ListView,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import DataService from '../../service/DataService';
+import BlogListItem from './BlogListItem.android';
+import SwipeRefreshLayout from '../../component/SwipeRefreshLayout.android';
+import CenterBlockView from '../../component/CenterBlockView';
 
 var SWIPE_REFRESH_LAYOUT_REF = "swiperefreshlayout";
 
@@ -58,15 +58,15 @@ var BlogList = React.createClass({
                 dataSource   : this.state.dataSource.cloneWithRows(this.blogs)
             });
 
-            this.stopRefresh();
+            this.stopSwipeRefresh();
         }.bind(this)).done();
     },
 
-    stopRefresh: function() {
-        this.refs[SWIPE_REFRESH_LAYOUT_REF].stopRefresh();
+    stopSwipeRefresh: function() {
+        this.refs[SWIPE_REFRESH_LAYOUT_REF].stopSwipeRefresh();
     },
 
-    onRefresh: function() {
+    onSwipeRefresh: function() {
         this.fetchBlogs(1);
     },
 
@@ -97,14 +97,14 @@ var BlogList = React.createClass({
             );
         }else{
             return (
-                <SwipeRefreshLayout ref={SWIPE_REFRESH_LAYOUT_REF} onRefresh={this.onRefresh}>
+                <SwipeRefreshLayout ref={SWIPE_REFRESH_LAYOUT_REF} onSwipeRefresh={this.onSwipeRefresh}>
                     <ListView
                         dataSource={this.state.dataSource}
                         renderRow={this.renderRow}
                         onEndReached={this.onEndReached}
                         onEndReachedThreshold={40}
                         keyboardDismissMode="on-drag"
-                        keyboardShouldPersistTaps={true}
+                        keyboardShouldPersistTaps="always"
                         showsVerticalScrollIndicator={false}
                         automaticallyAdjustContentInsets={false}
                         style={styles.listContainer} />

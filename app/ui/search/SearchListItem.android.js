@@ -1,15 +1,15 @@
 'use strict';
 
-var React = require('react-native');
-var CardView = require('../shared/CardView.android');
-
-var {
+import React, { Component } from 'react';
+import {
     View,
     TouchableNativeFeedback,
     Text,
     Image,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import CardView from '../shared/CardView.android';
 
 var SearchListItem = React.createClass({
     onPress: function() {

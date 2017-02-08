@@ -1,16 +1,16 @@
 'use strict';
 
-var React = require('react-native');
-var ResponsiveImage = require('react-native-responsive-image');
-var CardView = require('../shared/CardView.android');
-
-var {
+import React, { Component } from 'react';
+import {
     View,
     TouchableNativeFeedback,
     Text,
     Image,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import ResponsiveImage from 'react-native-responsive-image';
+import CardView from '../shared/CardView.android';
 
 var PhotoListItem = React.createClass({
     onPressUser: function() {

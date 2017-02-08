@@ -1,17 +1,17 @@
 'use strict';
 
-var React = require('react-native');
-var ResponsiveImage = require('react-native-responsive-image');
-var WebIntent = require('react-native-webintent');
-var DrawerMenuUI = require('./shared/DrawerMenu');
-var CardView = require('./shared/CardView');
-
-var {
+import React, { Component } from 'react';
+import {
     View,
     Text,
     TouchableNativeFeedback,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import ResponsiveImage from 'react-native-responsive-image';
+import WebIntent from 'react-native-webintent';
+import DrawerMenuUI from './shared/DrawerMenu';
+import CardView from './shared/CardView';
 
 var AboutUI = React.createClass({
     onPressBodyLink: function(information) {
@@ -20,49 +20,52 @@ var AboutUI = React.createClass({
 
     render: function() {
         var navigation = this.props.navigation;
-        var informations = [
-            {
-                "name": "Our Name",
-                "body": "GG Develop",
-                "type": "text"
-            },
-            {
-                "name": "Our Website",
-                "body": "https://www.ggd.im/",
-                "type": "link"
-            },
-            {
-                "name": "Facebook",
-                "body": "https://www.facebook.com/ggdevelop",
-                "type": "link"
-            },
-            {
-                "name": "Twitter",
-                "body": "https://www.twitter.com/ggdevim",
-                "type": "link"
-            },
-        ];
 
-        var blocks = [];
-        for(var i=0; i<informations.length; i++) {
+        let informations = [{
+            "name": "Our Name",
+            "body": "GG Develop",
+            "type": "text"
+        },
+        {
+            "name": "Our Website",
+            "body": "https://www.ggd.im/",
+            "type": "link"
+        },
+        {
+            "name": "Facebook",
+            "body": "https://www.facebook.com/ggdevelop",
+            "type": "link"
+        },
+        {
+            "name": "Twitter",
+            "body": "https://www.twitter.com/ggdevim",
+            "type": "link"
+        }];
+
+        let blocks = []
+        for(let i=0; i<informations.length; i++) {
             let information = informations[i];
 
-            var body;
-            if (information.type === 'link') {
-                body =
-                    <TouchableNativeFeedback onPress={() => this.onPressBodyLink(information)}>
+            let body, block;
+            switch(information.type) {
+                case 'text':
+                    body =
                         <View style={styles.body}>
                             <Text>{information.body}</Text>
                         </View>
-                    </TouchableNativeFeedback>
-            }else{
-                body =
-                    <View style={styles.body}>
-                        <Text>{information.body}</Text>
-                    </View>
+                    break;
+
+                case 'link':
+                    body =
+                        <TouchableNativeFeedback onPress={() => this.onPressBodyLink(information)}>
+                            <View style={styles.body}>
+                                <Text>{information.body}</Text>
+                            </View>
+                        </TouchableNativeFeedback>
+                    break;
             }
 
-            var block =
+            block =
                 <CardView key={'r_' + i}>
                     <View style={styles.columnContainer}>
                         <View style={styles.heading}>
@@ -72,7 +75,7 @@ var AboutUI = React.createClass({
                     </View>
                 </CardView>
 
-            blocks.push(block);
+            blocks.push(block)
         }
 
         return (
@@ -89,7 +92,6 @@ var AboutUI = React.createClass({
 
 var styles = StyleSheet.create({
     columnContainer: {
-        flex: 1,
         flexDirection: 'column',
         backgroundColor: 'white',
     },

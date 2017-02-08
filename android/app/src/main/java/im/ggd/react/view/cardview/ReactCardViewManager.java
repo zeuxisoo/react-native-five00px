@@ -3,7 +3,7 @@ package im.ggd.react.view.cardview;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.facebook.react.uimanager.ReactProp;
+import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
 

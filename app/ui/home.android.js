@@ -1,8 +1,6 @@
-'use strict';
-
-var React = require('react-native');
-var DrawerMenuUI = require('./shared/DrawerMenu');
-var PhotoList = require('./home/PhotoList.android');
+import React, { Component } from 'react';
+import DrawerMenuUI from './shared/DrawerMenu';
+import PhotoList from './home/PhotoList.android';
 
 var HomeUI = React.createClass({
     render: function() {

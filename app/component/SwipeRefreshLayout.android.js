@@ -1,31 +1,36 @@
 'use strict';
 
-var React = require('react-native');
-var createReactNativeComponentClass = require('createReactNativeComponentClass');
-var ReactNativeViewAttributes = require('ReactNativeViewAttributes');
-var ReactPropTypes = require('ReactPropTypes');
-var NativeMethodsMixin = require('NativeMethodsMixin');
-var RCTUIManager = require('NativeModules').UIManager;
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  View,
+  findNodeHandle
+} from 'react-native';
 
-var { View, StyleSheet } = React;
+import createReactNativeComponentClass from 'createReactNativeComponentClass';
+import ReactNativeViewAttributes from 'ReactNativeViewAttributes';
+import NativeMethodsMixin from 'NativeMethodsMixin';
+import NativeModules from 'NativeModules';
+
+var RCTUIManager = NativeModules.UIManager;
 
 var RK_SWIPE_REFRESH_REF = 'swiperefreshlayout';
 var INNER_VIEW_NODE_REF = 'innerviewnode';
 
 var SwipeRefreshLayout = React.createClass({
     propTypes: {
-        onRefresh: ReactPropTypes.func,
+        onSwipeRefresh: React.PropTypes.func,
     },
 
     mixins: [NativeMethodsMixin],
 
     _getSwipeRefreshLayoutHandle: function() {
-        return React.findNodeHandle(this.refs[RK_SWIPE_REFRESH_REF]);
+        return findNodeHandle(this.refs[RK_SWIPE_REFRESH_REF]);
     },
 
-    _onRefresh: function() {
-        if (this.props.onRefresh) {
-            this.props.onRefresh();
+    _onSwipeRefresh: function() {
+        if (this.props.onSwipeRefresh) {
+            this.props.onSwipeRefresh();
         }
     },
 
@@ -33,18 +38,18 @@ var SwipeRefreshLayout = React.createClass({
         return this.refs[INNER_VIEW_NODE_REF].getInnerViewNode();
     },
 
-    startRefresh: function() {
+    startSwipeRefresh: function() {
         RCTUIManager.dispatchViewManagerCommand(
             this._getSwipeRefreshLayoutHandle(),
-            RCTUIManager.AndroidSwipeRefreshLayout.Commands.startRefresh,
+            RCTUIManager.AndroidSwipeRefreshLayout.Commands.startSwipeRefresh,
             null
         );
     },
 
-    stopRefresh: function() {
+    stopSwipeRefresh: function() {
         RCTUIManager.dispatchViewManagerCommand(
             this._getSwipeRefreshLayoutHandle(),
-            RCTUIManager.AndroidSwipeRefreshLayout.Commands.stopRefresh,
+            RCTUIManager.AndroidSwipeRefreshLayout.Commands.stopSwipeRefresh,
             null
         );
     },
@@ -55,7 +60,7 @@ var SwipeRefreshLayout = React.createClass({
                 {...this.props}
                 ref={RK_SWIPE_REFRESH_REF}
                 style={styles.base}
-                onRefresh={this._onRefresh}>
+                onSwipeRefresh={this._onSwipeRefresh}>
                 <View ref={INNER_VIEW_NODE_REF} style={styles.mainSubview} collapsable={false}>
                     {this.props.children}
                 </View>

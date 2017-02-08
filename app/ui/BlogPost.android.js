@@ -1,20 +1,20 @@
 'use strict';
 
-var React = require('react-native');
-var TimeAgo = require('react-native-timeago');
-var DrawerMenuUI = require('./shared/DrawerMenu');
-var CardView = require('./shared/CardView.android');
-var DataService = require('../service/DataService');
-var CenterBlockView = require('../component/CenterBlockView');
-
-var {
+import React, { Component } from 'react';
+import {
     ScrollView,
     TouchableNativeFeedback,
     View,
     Image,
     Text,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import TimeAgo from 'react-native-timeago';
+import DrawerMenuUI from './shared/DrawerMenu';
+import CardView from './shared/CardView.android';
+import DataService from '../service/DataService';
+import CenterBlockView from '../component/CenterBlockView';
 
 var BlogPostUI = React.createClass({
     getInitialState: function() {

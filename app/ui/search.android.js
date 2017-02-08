@@ -1,8 +1,9 @@
 'use strict';
 
-var React = require('react-native');
-var DrawerMenuUI = require('./shared/DrawerMenu');
-var SearchList = require('./search/SearchList.android');
+import React, { Component } from 'react';
+
+import DrawerMenuUI from './shared/DrawerMenu';
+import SearchList from './search/SearchList.android';
 
 var SearchUI = React.createClass({
     render: function() {

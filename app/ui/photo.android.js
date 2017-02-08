@@ -1,19 +1,17 @@
-'use strict';
-
-var React = require('react-native');
-var ResponsiveImage = require('react-native-responsive-image');
-var Button = require('react-native-button');
-var DrawerMenuUI = require('./shared/DrawerMenu');
-var CardView = require('./shared/CardView.android');
-
-var {
+import React, { Component } from 'react';
+import {
     ScrollView,
     TouchableNativeFeedback,
     View,
     Image,
     Text,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import ResponsiveImage from 'react-native-responsive-image';
+import Button from 'react-native-button';
+import DrawerMenuUI from './shared/DrawerMenu';
+import CardView from './shared/CardView.android';
 
 var PhotoUI = React.createClass({
     onPressUser: function() {

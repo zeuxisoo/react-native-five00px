@@ -1,12 +1,7 @@
 'use strict';
 
-var React = require('react-native');
-var Button = require('react-native-button');
-var DataService = require('../../service/DataService');
-var SearchListItem = require('./SearchListItem.android');
-var CenterBlockView = require('../../component/CenterBlockView');
-
-var {
+import React, { Component } from 'react';
+import {
     TouchableWithoutFeedback,
     View,
     Text,
@@ -14,7 +9,12 @@ var {
     ListView,
     ToastAndroid,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import Button from 'react-native-button';
+import DataService from '../../service/DataService';
+import SearchListItem from './SearchListItem.android';
+import CenterBlockView from '../../component/CenterBlockView';
 
 var TEXT_INPUT_REF = 'textinput';
 
@@ -116,7 +116,7 @@ var SearchUI = React.createClass({
                     renderRow={this.renderRow}
                     onEndReached={this.onEndReached}
                     keyboardDismissMode="on-drag"
-                    keyboardShouldPersistTaps={true}
+                    keyboardShouldPersistTaps="always"
                     showsVerticalScrollIndicator={false}
                     automaticallyAdjustContentInsets={false}
                     style={styles.listContainer} />

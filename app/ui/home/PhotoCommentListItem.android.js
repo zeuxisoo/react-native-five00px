@@ -1,16 +1,16 @@
 'use strict';
 
-var React = require('react-native');
-var TimeAgo = require('react-native-timeago');
-var CardView = require('../shared/CardView.android');
-
-var {
+import React, { Component } from 'react';
+import {
     View,
     TouchableNativeFeedback,
     Text,
     Image,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import TimeAgo from 'react-native-timeago';
+import CardView from '../shared/CardView.android';
 
 var PhotoCommentListItem = React.createClass({
     onPressUser: function() {

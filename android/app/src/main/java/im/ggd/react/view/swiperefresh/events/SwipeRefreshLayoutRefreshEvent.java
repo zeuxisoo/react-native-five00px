@@ -9,8 +9,8 @@ public class SwipeRefreshLayoutRefreshEvent extends Event<SwipeRefreshLayoutRefr
 
     public static final String EVENT_NAME = "topSwipeRefresh";
 
-    public SwipeRefreshLayoutRefreshEvent(int viewTag, long timestampMs) {
-        super(viewTag, timestampMs);
+    public SwipeRefreshLayoutRefreshEvent(int viewTag) {
+        super(viewTag);
     }
 
     @Override

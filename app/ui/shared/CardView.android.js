@@ -1,13 +1,12 @@
 'use strict';
 
-var React = require('react-native');
-
-var {
+import React, { Component } from 'react';
+import {
     View,
     StyleSheet
-} = React;
+} from 'react-native';
 
-var CardView = require('../../component/CardView.android');
+import CardView from '../../component/CardView.android';
 
 var CustomCardView = React.createClass({
     render: function() {

@@ -1,15 +1,12 @@
-'use strict';
-
-var React = require('react-native');
-var {
+import React, { Component } from 'react';
+import {
     StyleSheet,
     View,
     ListView,
     TouchableNativeFeedback,
     Text,
     Image
-} = React;
-
+} from 'react-native';
 
 var DrawerMenuList = React.createClass({
     getInitialState: function() {
@@ -73,7 +70,7 @@ var DrawerMenuList = React.createClass({
                     renderHeader={this.renderHeader}
                     renderRow={this.renderRow}
                     keyboardDismissMode="on-drag"
-                    keyboardShouldPersistTaps={true}
+                    keyboardShouldPersistTaps="always"
                     showsVerticalScrollIndicator={false}
                     automaticallyAdjustContentInsets={false}
                     style={styles.menuList}>

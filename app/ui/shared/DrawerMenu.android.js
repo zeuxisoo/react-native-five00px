@@ -1,16 +1,14 @@
-'use strict';
-
-var React = require('react-native');
-var DrawerMenuList = require('./DrawerMenuList');
-
-var {
+import React, { Component } from 'react';
+import {
     StyleSheet,
     DrawerLayoutAndroid,
     View,
     ToolbarAndroid,
     Text,
     Dimensions
-} = React;
+} from 'react-native';
+
+import DrawerMenuList from './DrawerMenuList';
 
 var DRAWER_REF = 'drawer';
 

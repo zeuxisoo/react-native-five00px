@@ -39,7 +39,7 @@ public class ReactSwipeRefreshLayoutManager extends ViewGroupManager<ReactSwipeR
     @Override
     public Map getExportedCustomDirectEventTypeConstants() {
         return MapBuilder.of(
-            SwipeRefreshLayoutRefreshEvent.EVENT_NAME, MapBuilder.of("registrationName", "onRefresh")
+            SwipeRefreshLayoutRefreshEvent.EVENT_NAME, MapBuilder.of("registrationName", "onSwipeRefresh")
         );
     }
 
@@ -47,8 +47,8 @@ public class ReactSwipeRefreshLayoutManager extends ViewGroupManager<ReactSwipeR
     @Override
     public Map<String, Integer> getCommandsMap() {
         return MapBuilder.of(
-            "startRefresh", REFRESH_START,
-            "stopRefresh", REFRESH_STOP
+            "startSwipeRefresh", REFRESH_START,
+            "stopSwipeRefresh", REFRESH_STOP
         );
     }
 
@@ -101,7 +101,7 @@ public class ReactSwipeRefreshLayoutManager extends ViewGroupManager<ReactSwipeR
         @Override
         public void onRefresh() {
             mEventDispatcher.dispatchEvent(
-                new SwipeRefreshLayoutRefreshEvent(mReactSwipeRefreshLayout.getId(), SystemClock.uptimeMillis())
+                new SwipeRefreshLayoutRefreshEvent(mReactSwipeRefreshLayout.getId())
             );
         }
 

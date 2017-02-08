@@ -1,17 +1,17 @@
 'use strict';
 
-var React = require('react-native');
-var DataService = require('../../service/DataService');
-var PhotoListItem = require('./PhotoListItem.android');
-var SwipeRefreshLayout = require('../../component/SwipeRefreshLayout.android');
-var CenterBlockView = require('../../component/CenterBlockView');
-
-var {
+import React, { Component } from 'react';
+import {
     View,
     Text,
     ListView,
     StyleSheet
-} = React;
+} from 'react-native';
+
+import DataService from '../../service/DataService';
+import PhotoListItem from './PhotoListItem.android';
+import SwipeRefreshLayout from '../../component/SwipeRefreshLayout.android';
+import CenterBlockView from '../../component/CenterBlockView';
 
 var SWIPE_REFRESH_LAYOUT_REF = "swiperefreshlayout";
 
@@ -58,15 +58,15 @@ var PhotoList = React.createClass({
                 dataSource   : this.state.dataSource.cloneWithRows(this.photos)
             });
 
-            this.stopRefresh();
+            this.stopSwipeRefresh();
         }.bind(this)).done();
     },
 
-    stopRefresh: function() {
-        this.refs[SWIPE_REFRESH_LAYOUT_REF].stopRefresh();
+    stopSwipeRefresh: function() {
+        this.refs[SWIPE_REFRESH_LAYOUT_REF].stopSwipeRefresh();
     },
 
-    onRefresh: function() {
+    onSwipeRefresh: function() {
         this.fetchPhotos(1);
     },
 
@@ -97,13 +97,13 @@ var PhotoList = React.createClass({
             );
         }else{
             return (
-                <SwipeRefreshLayout ref={SWIPE_REFRESH_LAYOUT_REF} onRefresh={this.onRefresh}>
+                <SwipeRefreshLayout ref={SWIPE_REFRESH_LAYOUT_REF} onSwipeRefresh={this.onSwipeRefresh}>
                     <ListView
                         dataSource={this.state.dataSource}
                         renderRow={this.renderRow}
                         onEndReached={this.onEndReached}
                         keyboardDismissMode="on-drag"
-                        keyboardShouldPersistTaps={true}
+                        keyboardShouldPersistTaps="always"
                         showsVerticalScrollIndicator={false}
                         automaticallyAdjustContentInsets={false}
                         style={styles.listContainer} />
