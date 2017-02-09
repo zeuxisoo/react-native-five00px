@@ -22,6 +22,7 @@ import BlogPostUI from './app/ui/BlogPost.android';
 import SearchUI from './app/ui/Search.android';
 import UserProfileUI from './app/ui/UserProfile.android';
 import AboutUI from './app/ui/About.android';
+import PrivacyUI from './app/ui/Privacy.android';
 
 import Network from './app/helper/Network.android';
 
@@ -113,6 +114,14 @@ var Five00px = React.createClass({
             return (
                 <View style={styles.container}>
                     <AboutUI navigation={navigation}></AboutUI>
+                </View>
+            )
+        }
+
+        if (route.name === 'privacy') {
+            return (
+                <View style={styles.container}>
+                    <PrivacyUI navigation={navigation}></PrivacyUI>
                 </View>
             )
         }
